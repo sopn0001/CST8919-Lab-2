@@ -10,7 +10,7 @@ A Flask login demo app that logs authentication attempts to stdout for Azure Mon
 
 **Student ID**: 041199877
 
-**Semester**: Winter 2026
+**Semester**: Spring 2026
 
 ---
 
