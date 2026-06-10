@@ -1,0 +1,104 @@
+### Variables - update @host after deploying to Azure App Service
+@host = https://YOUR-APP-NAME.azurewebsites.net
+@localHost = http://127.0.0.1:3000
+
+### Health check (local)
+GET {{localHost}}/health
+
+###
+
+### Home page (local)
+GET {{localHost}}/
+
+###
+
+### Successful login (local)
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "secret123"
+}
+
+###
+
+### Failed login attempt 1 (local) - use to generate brute-force logs
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "wrong1"
+}
+
+###
+
+### Failed login attempt 2 (local)
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "wrong2"
+}
+
+###
+
+### Failed login attempt 3 (local)
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "hacker",
+  "password": "guess1"
+}
+
+###
+
+### Failed login attempt 4 (local)
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "hacker",
+  "password": "guess2"
+}
+
+###
+
+### Failed login attempt 5 (local)
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "hacker",
+  "password": "guess3"
+}
+
+###
+
+### Failed login attempt 6 (local) - triggers alert threshold (>5 failures in 5 min)
+POST {{localHost}}/login
+Content-Type: application/json
+
+{
+  "username": "hacker",
+  "password": "guess4"
+}
+
+###
+
+### Health check (Azure) - uncomment after deployment
+# GET {{host}}/health
+
+###
+
+### Failed login attempt (Azure) - uncomment after deployment
+# POST {{host}}/login
+# Content-Type: application/json
+#
+# {
+#   "username": "attacker",
+#   "password": "badpassword"
+# }
