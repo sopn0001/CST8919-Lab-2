@@ -2,9 +2,21 @@
 
 A Flask login demo app that logs authentication attempts to stdout for Azure Monitor diagnostic logging, KQL analysis, and brute-force alert rules.
 
+---
+
+## CST8919 DevOps - Security and Compliance
+
+**Student Name**: IDRIS JOVIAL SOP NWABO
+
+**Student ID**: 041199877
+
+**Semester**: Winter 2026
+
+---
+
 ## Demo Video
 
-**YouTube:** [Add your 5-minute demo link here](https://youtube.com)
+**YouTube:** [Watch here](https://www.youtube.com/watch?v=sYkm_ax8w2g)
 
 ## What I Learned
 
@@ -16,13 +28,6 @@ A Flask login demo app that logs authentication attempts to stdout for Azure Mon
 
 - Log propagation delay: console logs can take a few minutes to appear in Log Analytics after diagnostic settings are enabled.
 - Matching log text reliably in KQL required consistent, structured log messages from the application.
-
-## Real-World Improvements
-
-- Use structured JSON logging and Application Insights instead of parsing free-text console output.
-- Track failed attempts per IP/username with rate limiting and account lockout.
-- Correlate with WAF logs, geo-IP, and known credential-stuffing indicators.
-- Add SIEM integration, runbooks, and automated response (block IP, disable account).
 
 ---
 

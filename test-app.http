@@ -1,9 +1,9 @@
 ### Variables - update @host after deploying to Azure App Service
-@host = https://YOUR-APP-NAME.azurewebsites.net
+@host = https://logindetection-d3ekgbeaame6g6et.canadacentral-01.azurewebsites.net/
 @localHost = http://127.0.0.1:3000
 
 ### Health check (local)
-GET {{localHost}}/health
+GET {{host}}/health
 
 ###
 
@@ -90,15 +90,26 @@ Content-Type: application/json
 ###
 
 ### Health check (Azure) - uncomment after deployment
-# GET {{host}}/health
+GET {{host}}/health
+
+###
+
+### Successful login (Azure)
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "secret123"
+}
 
 ###
 
 ### Failed login attempt (Azure) - uncomment after deployment
-# POST {{host}}/login
-# Content-Type: application/json
-#
-# {
-#   "username": "attacker",
-#   "password": "badpassword"
-# }
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "username": "attacker",
+  "password": "badpassword"
+}
